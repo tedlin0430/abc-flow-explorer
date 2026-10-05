@@ -1,0 +1,90 @@
+:root {
+    --page-bg: #f4f6f8;
+    --card-bg: #ffffff;
+    --text: #20242a;
+    --muted: #68707a;
+    --border: #dfe3e8;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    background: var(--page-bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+.page-shell { max-width: 1800px; margin: 0 auto; padding: 24px; }
+.header { margin-bottom: 18px; }
+.header h1 { margin: 0 0 6px 0; font-size: 30px; }
+.header p { margin: 0; color: var(--muted); }
+.main-grid {
+    display: grid;
+    grid-template-columns: minmax(480px, 1fr) minmax(480px, 1fr) 240px;
+    gap: 16px;
+    align-items: start;
+}
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.controls-card { padding: 18px; }
+.controls-card h3 { margin-top: 0; }
+.controls-card label { display: block; margin: 13px 0 5px; font-weight: 600; }
+.controls-card input {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid #c7cdd4;
+    border-radius: 7px;
+    font-size: 15px;
+}
+.controls-card button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: 8px;
+    background: #232a31;
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.controls-card button:hover { opacity: 0.9; }
+.status-box { margin-top: 14px; font-size: 13px; line-height: 1.45; }
+.status-ok { color: #1d6538; }
+.status-warning { margin-top: 8px; color: #8a5a00; }
+.status-error { color: #a11a1a; }
+.meta-box { color: var(--muted); font-size: 13px; line-height: 1.5; }
+.footer-note { margin-top: 14px; color: var(--muted); font-size: 12px; }
+@media (max-width: 1250px) {
+    .main-grid { grid-template-columns: 1fr 1fr; }
+    .controls-card { grid-column: 1 / -1; }
+}
+@media (max-width: 850px) {
+    .page-shell { padding: 12px; }
+    .main-grid { grid-template-columns: 1fr; }
+    .controls-card { grid-column: auto; }
+}
+
+
+/* Plain editable parameter fields */
+.controls-card input[type="text"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background: #ffffff;
+    color: #20242a;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 11px;
+    border: 1px solid #aeb7c2;
+    border-radius: 7px;
+    outline: none;
+    font-size: 15px;
+}
+.controls-card input[type="text"]:focus {
+    border-color: #556270;
+    box-shadow: 0 0 0 2px rgba(85,98,112,0.12);
+}
+.controls-card input::placeholder { color: #9aa3ad; }
